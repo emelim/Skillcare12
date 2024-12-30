@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maximus Video App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script src="https://code.jivosite.com/widget/5EIx3CwabR" async></script> <!-- JivoChat Widget -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    <!-- Registration Form -->
+    <div id="register-section">
+        <h2>Register</h2>
+        <input type="text" id="register-name" placeholder="Name" required>
+        <input type="email" id="register-email" placeholder="Email" required>
+        <div class="password-container">
+            <input type="password" id="register-password" placeholder="Password" required>
+            <i id="register-password-eye" class="fas fa-eye" onclick="togglePasswordVisibility('register-password', 'register-password-eye')"></i>
+        </div>
+        <input type="text" id="register-phone" placeholder="Phone Number" required>
+        <button onclick="registerUser()">Register</button>
+        <button onclick="toggleForms()">Already have an account? Log in</button>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-section" style="display: none;">
+        <h2>Login</h2>
+        <input type="email" id="login-email" placeholder="Email" required>
+        <div class="password-container">
+            <input type="password" id="login-password" placeholder="Password" required>
+            <i id="login-password-eye" class="fas fa-eye" onclick="togglePasswordVisibility('login-password', 'login-password-eye')"></i>
+        </div>
+        <button onclick="loginUser()">Login</button>
+        <button onclick="toggleForms()">Don't have an account? Register</button>
+    </div>
+
+    <!-- Video Streaming Section -->
+    <div id="video-section" style="display: none;">
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Search videos by title" oninput="performSearch()">
+        </div>
+        <div id="videos-container"></div>
+        <div id="no-results" style="display: none;">No results found.</div>
+    </div>
+
+    <!-- Video Description Modal -->
+    <div id="description-modal" style="display: none;">
+        <div id="description-content">
+            <button id="close-description" onclick="closeDescriptionModal()">×</button>
+            <h2>Video Description</h2>
+            <p id="full-description"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
